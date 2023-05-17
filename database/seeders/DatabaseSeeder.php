@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Menu;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
 
-        Menu::create([
+     /*   Menu::create([
             'name' => "Biftek",
             'price' => "950",
             'description' => "biftek, grilovano povrće ili krompir, sos po želji"
@@ -34,6 +35,11 @@ class DatabaseSeeder extends Seeder
             'price' => "930",
             'description' => "pohovana piletina, susam, pomfrit, tartar sos"
         ]); 
+
+        */
+
+        Menu::factory(5)->create();
+        Order::factory(3)->create();
 
 
         // \App\Models\User::factory()->create([
