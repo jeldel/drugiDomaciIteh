@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        User::factory(10)->create();
+        User::factory(5)->create();
 
      /*   Menu::create([
             'name' => "Biftek",
@@ -38,8 +38,8 @@ class DatabaseSeeder extends Seeder
 
         */
 
-        Menu::factory(5)->create();
-        Order::factory(3)->create();
+        Menu::factory(8)->create();
+        Order::factory(15)->create();
 
 
         // \App\Models\User::factory()->create([
