@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\MenuTestController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuOrderController;
@@ -42,3 +43,18 @@ Route::get('menus/{id}',[MenuController::class, 'show'])->name('menus.show');
 Route::get('/menus',[MenuController::class, 'index'])->name('menus.index');
 Route::resource('orders', OrderController::class);
 Route::resource('menus.orders', MenuOrderController::class)->only(['index']);
+
+
+
+//autentifikacija rute
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function(Request $request) {
+        return auth()->user();
+    });
+
+    Route::resource('orders', OrderController::class)->only(['update','store','destroy']);
+});
