@@ -23,7 +23,6 @@ class OrderFactory extends Factory
         return [
             'user_id' => $user->id,
             'menu_id' => $menu->id,
-            'menu_name' => $menu->name,
             'quantity' => fake()->numberBetween(1, 10),
             'status' => fake()->randomElement(['pending', 'completed', 'active'])
         ];

@@ -36,7 +36,6 @@ class OrderController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'menu_id' => 'required|exists:menus,id',
-            'menu_name' => 'required|string|min:2|max:50',
             'quantity' => 'required|integer|min:1'
         ]);
 
@@ -47,7 +46,6 @@ class OrderController extends Controller
         $order = new Order();
         $order->user_id = $request->user_id;
         $order->menu_id = $request->menu_id;
-        $order->menu_name = $request->menu_name;
         $order->quantity = $request->quantity;
         $order->save();
 
